@@ -1,11 +1,9 @@
 import { AlignRight } from "lucide-react";
-import ProfileDropdownMenu from "./profile-dropdown-menu";
-import { AVATAR_USER_TWO } from "@/assets/images";
 import { Logo } from "@/assets/svgs";
 
 interface IProps {
   // showSidebar: any;
-  setShowSidebar: (state: any) => any;
+  setShowSidebar: (state: any) => void;
 }
 
 const Topnav = ({ setShowSidebar }: IProps) => {
@@ -32,7 +30,7 @@ const Topnav = ({ setShowSidebar }: IProps) => {
         <span
           className="cursor-pointer lg:hidden"
           onClick={() =>
-            setShowSidebar((prevState: boolean) => {
+            setShowSidebar((prevState: any) => {
               return !prevState;
             })
           }

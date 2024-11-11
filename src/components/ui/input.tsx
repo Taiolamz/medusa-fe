@@ -1,7 +1,7 @@
 import * as React from "react";
 
 import { cn } from "@/lib/utils";
-import { Search } from "lucide-react";
+import { Dictionary } from "@/types";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -13,10 +13,10 @@ export interface InputProps
   value?: string;
   icon?: React.ReactNode;
   iconClass?: string;
-  handleBlur?: (event: any) => void;
-  onChange: (event: any) => void;
-  touched?: any;
-  error?: any;
+  handleBlur?: (event: Dictionary) => void;
+  onChange: (event: Dictionary) => void;
+  touched?: boolean;
+  error?: string;
 }
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
