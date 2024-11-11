@@ -1,9 +1,9 @@
-import { DownloadIcon } from "@/assets/svgs";
-import { cn } from "@/lib/utils";
+import { DownloadIcon } from "../../assets/svgs";
+import { cn } from "../../lib/utils";
 import { Dictionary } from "@/types";
 import { ArrowDown } from "lucide-react";
-import React from "react";
-import { Checkbox, ReusableBadge, TeamsBadge } from "../fragments";
+import * as React from "react";
+import { Checkbox } from "../fragments";
 import { Button } from "../ui/button";
 import {
   Table,
@@ -14,70 +14,6 @@ import {
   TableRow,
 } from "../ui/table";
 
-// interface User {
-//   id: string;
-//   name: string;
-//   avatar: string;
-// }
-
-// interface UserRole {
-//   id: string;
-//   name: string;
-//   type: "DEFAULT" | "CUSTOM" | "SYSTEM-CUSTOM";
-//   dateCreated: string;
-//   status: "Active" | "In Active";
-//   users: User[];
-// }
-
-// const data: UserRole[] = [
-//   {
-//     id: "1",
-//     name: "Superadmin",
-//     type: "DEFAULT",
-//     dateCreated: "Jan 1, 2023",
-//     status: "Active",
-//     users: [
-//       { id: "1", name: "User 1", avatar: AVATAR_USER_TWO },
-//       { id: "2", name: "User 2", avatar: AVATAR_USER_TWO },
-//       { id: "3", name: "User 3", avatar: AVATAR_USER_TWO },
-//       { id: "4", name: "User 4", avatar: AVATAR_USER_TWO },
-//       { id: "5", name: "User 5", avatar: AVATAR_USER_TWO },
-//       { id: "6", name: "User 6", avatar: AVATAR_USER_TWO },
-//       { id: "7", name: "User 7", avatar: AVATAR_USER_TWO },
-//     ],
-//   },
-//   {
-//     id: "2",
-//     name: "Merchantadmin",
-//     type: "DEFAULT",
-//     dateCreated: "Feb 1, 2023",
-//     status: "Active",
-//     users: [
-//       { id: "1", name: "User 1", avatar: AVATAR_USER_TWO },
-//       { id: "2", name: "User 2", avatar: AVATAR_USER_TWO },
-//       { id: "3", name: "User 3", avatar: AVATAR_USER_TWO },
-//       { id: "4", name: "User 4", avatar: AVATAR_USER_TWO },
-//       { id: "5", name: "User 5", avatar: AVATAR_USER_TWO },
-//       { id: "6", name: "User 6", avatar: AVATAR_USER_TWO },
-//     ],
-//   },
-//   {
-//     id: "3",
-//     name: "Merchantadmin",
-//     type: "DEFAULT",
-//     dateCreated: "Feb 1, 2023",
-//     status: "In Active",
-//     users: [
-//       { id: "1", name: "User 1", avatar: AVATAR_USER_TWO },
-//       { id: "2", name: "User 2", avatar: AVATAR_USER_TWO },
-//       { id: "3", name: "User 3", avatar: AVATAR_USER_TWO },
-//       { id: "4", name: "User 4", avatar: AVATAR_USER_TWO },
-//       { id: "5", name: "User 5", avatar: AVATAR_USER_TWO },
-//       { id: "6", name: "User 6", avatar: AVATAR_USER_TWO },
-//     ],
-//   },
-//   // Add more sample data as needed
-// ];
 
 type HEADER_TYPE = {
   name: string;
@@ -91,7 +27,7 @@ interface ReusableTableProps {
   hasDownloadBtn?: boolean;
   handleExport?: () => void;
   hasCheck?: boolean;
-  dataList: any;
+  dataList: Dictionary[];
 }
 
 export default function ReusableTable({
@@ -125,6 +61,7 @@ export default function ReusableTable({
       }
       return a[sortConfig.key] < b[sortConfig.key] ? 1 : -1;
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortConfig]);
 
   const toggleRole = (roleId: string) => {
@@ -191,7 +128,7 @@ export default function ReusableTable({
                 <TableHead
                   key={idx}
                   className="cursor-pointer"
-                //   onClick={() => hasSort && toggleSort(accessor)}
+                  onClick={() => hasSort && toggleSort(accessor)}
                 >
                   <div className="flex items-center font-normal text-[.8rem]">
                     {name}
@@ -205,7 +142,7 @@ export default function ReusableTable({
           <TableBody>
             {/* {Object.values( */}
             {
-                sortedData.map((data, idx) => {
+                sortedData.map((data) => {
                   return (
                     <TableRow key={data._id} className="bg-white">
                       {hasCheck && (
@@ -219,11 +156,11 @@ export default function ReusableTable({
                         </TableCell>
                       )}
                       {Object.entries(data)
-                        .filter(([key, value]) => {
+                        .filter(([key]) => {
                           return key !== "_id";
                         })
-                        .map((item: any) => (
-                          <TableCell key={idx} className="text-xs text-gray-600">
+                        .map((item: Dictionary, index) => (
+                          <TableCell key={index} className="text-xs text-gray-600">
                             {item[1]}
                           </TableCell>
                         ))}

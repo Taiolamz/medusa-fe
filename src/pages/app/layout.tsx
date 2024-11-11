@@ -12,7 +12,7 @@ export default function DashboardLayout({pageTitle, pageDescription, children}: 
     const [showSidebar, setShowSidebar] = useState<boolean>(true)
 
   return (
-    <main className="w-screen h-screen overflow-x-hidden bg-[#F9FAFB]">
+    <main className="w-screen h-screen overflow-hidden bg-[#F9FAFB]">
       <section className="md:flex md:gap-0">
         <Sidebar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
         <section className="md:mr-3 md:w-[calc(100vw_-14rem)] lg:w-[calc(100vw-_16.5rem)]">

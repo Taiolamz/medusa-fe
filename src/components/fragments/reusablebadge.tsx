@@ -1,6 +1,5 @@
-import { cn } from "@/lib/utils";
-import { Dictionary } from "@/types";
 import { Check } from "lucide-react";
+import { cn } from "../../lib/utils";
 
 interface CheckboxProps {
     status: string

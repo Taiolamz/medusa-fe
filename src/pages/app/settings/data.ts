@@ -83,17 +83,17 @@ export const ACTIVE_ROLES = [
     {
       name: "Type",
       accessor: "type",
-      hasSort: true
+      hasSort: false
     },
     {
       name: "Date created",
       accessor: "dateCreated",
-      hasSort: true
+      hasSort: false
     },
     {
       name: "Status",
       accessor: "status",
-      hasSort: true
+      hasSort: false
     },
     {
       name: "Role users",

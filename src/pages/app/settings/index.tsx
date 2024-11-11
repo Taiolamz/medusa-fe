@@ -19,11 +19,6 @@ import useSelectItem from "@/utils/hooks/useSelectItem";
 import { Dictionary } from "@/types";
 import { AVATAR_USER_TWO } from "@/assets/images";
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 interface UserRole {
   _id: string;
@@ -143,7 +138,7 @@ export default function Settings() {
                 labelClass="min-w-fit"
               />
 
-              <div className="flex flex-col gap-4 w-full">
+              <div className="flex lg:mt-0 mt-5 md:mt-0 flex-col gap-4 w-full">
                 {currentConnectedEmails.map(
                   ({ id, title, value, isActive }) => (
                     <div key={id} className="flex gap-2 items-start">

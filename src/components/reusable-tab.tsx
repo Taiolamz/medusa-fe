@@ -2,11 +2,6 @@ import { cn } from "@/lib/utils";
 import queryString from "query-string";
 import { useLocation, useNavigate } from "react-router-dom";
 
-type Dictionary = {
-  key: string;
-  value: any;
-};
-
 type TAB_TYPE = {
   title: string;
   accessor: string;
@@ -31,8 +26,8 @@ ReusableTabProps) {
 
 
   return (
-    <nav className="w-fit">
-      <ul className="flex items-center rounded-lg border border-r-0 bg-background text-muted-foreground last:border-r">
+    <nav className="w-full overflow-x-auto xl:w-fit">
+      <ul className="flex items-center overflow-auto rounded-lg border border-r-0 bg-background text-muted-foreground last:border-r-0">
         {tabList?.map(({ title, accessor }) => (
           <li key={title} onClick={() => navigate(`${pathname}?ui=${accessor}`)}>
             <button

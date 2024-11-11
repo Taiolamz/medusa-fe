@@ -49,7 +49,7 @@ export default function RoleCard({title, subTitle, isActive, handleSetAsDefault,
           </div>
         </div>
       </div>
-      <Checkbox isChecked={isActive} type="CHECK" />
+      <Checkbox isChecked={isActive} type="CHECK" handleClick={handleSetAsDefault}/>
     </div>
   );
 }
